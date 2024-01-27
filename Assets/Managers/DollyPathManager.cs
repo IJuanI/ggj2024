@@ -13,6 +13,7 @@ public class DollyPathManager : MonoBehaviour
     [SerializeField] int mainPriority=10;
     [SerializeField] int secondaryPriority=5;
 
+    [SerializeField] GameObject canvasWeapon1;
     public static DollyPathManager instance; 
 
     private void Awake()
@@ -30,6 +31,7 @@ public class DollyPathManager : MonoBehaviour
     }
     public void SetTargetForCamera(Transform transformToLook)
     {
+        //canvasWeapon1.transform.parent = cinemachineCameraToLook.transform;
         currentTargetForCamera = transformToLook;
         cinemachineCameraToLook.LookAt = currentTargetForCamera;
         cinemachineCamera.Priority = secondaryPriority;
@@ -41,6 +43,8 @@ public class DollyPathManager : MonoBehaviour
         cinemachineCamera.Priority = mainPriority;
         currentTargetForCamera = cartFront;
         cinemachineCameraToLook.LookAt=currentTargetForCamera;
+        //canvasWeapon1.transform.parent = cinemachineCamera.transform;
+
     }
     public void StopCart()
     {

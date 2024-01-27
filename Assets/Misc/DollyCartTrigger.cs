@@ -27,7 +27,7 @@ public class DollyCartTrigger : MonoBehaviour
     {
         if (DollyPathManager.instance != null)
         {
-            Debug.Log("paso por aca");
+            //Debug.Log("paso por aca");
             DollyPathManager.instance.SetTargetForCamera(newTargetToLook);
             if (stopOnTrigger)
             {

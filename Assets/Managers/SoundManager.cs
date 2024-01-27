@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
         else
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
     }
     public void PlaySound(int indexOfSounds)

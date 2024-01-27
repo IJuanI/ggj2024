@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseGun<T> : MonoBehaviour, IGun where T: IDamageable
+public abstract class BaseGun<T> : AnyGun where T: IDamageable
 {
 
   protected int capacity, currentAmmo;
@@ -46,18 +46,20 @@ public abstract class BaseGun<T> : MonoBehaviour, IGun where T: IDamageable
     currentAmmo = capacity;
   }
 
-  public virtual void Shoot(Vector2 screenPos)
+  public override void Shoot(Vector2 screenPos)
   {
     if (currentAmmo == 0 && !Reload()) return;
 
-    if (lastFireTime == 0 || Time.time - lastFireTime <= fireRate) return;
+
+    if (Time.time - lastFireTime < fireRate) return;
+
 
     if (isGunActive()) {
       DoFire(screenPos);
     }
   }
 
-  public virtual void CancelShoot() {
+  public override void CancelShoot() {
     shootStartTime = 0;
 
     if (currentAmmo == 0) {
@@ -79,10 +81,13 @@ public abstract class BaseGun<T> : MonoBehaviour, IGun where T: IDamageable
       OnStartReload();
     }
 
-    if (Time.time - reloadStartTime <= reloadTime) return false;
+    if (Time.time - reloadStartTime < reloadTime) return false;
 
     currentAmmo = capacity;
     reloadStartTime = 0;
+        Debug.Log("paso por acaaaaaaaaaaaaaaaaaaaaaaaaa");
+    UIManager.instance.Reload(0, currentAmmo);
+
 
     return true;
   }

@@ -9,6 +9,8 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
     Timer timerForEndScene;
     [SerializeField] float timeToGoOff;
 
+    [SerializeField] List<GameObject> runawaySpots = new List<GameObject>();
+
     
 
     // Start is called before the first frame update
@@ -22,7 +24,7 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
     {
         if (timerForEndScene != null)
         {
-            Debug.Log("timer");
+            //Debug.Log("timer");
             if (timerForEndScene.TimerStarted)
             {
                 timerForEndScene.UpdateTimer();
@@ -46,7 +48,7 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
 
     public void StartScene()
     {
-        Debug.Log("Start scene");
+        //Debug.Log("Start scene");
         timerForEndScene= new Timer(false, 0, timeToGoOff);
         timerForEndScene.OnFinishTimer += RemoveElementsFromScene;
         timerForEndScene.StartTimer();
@@ -55,5 +57,19 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
     public void Trigger()
     {
         StartScene();
+    }
+
+    public Vector2 GetPointToRunaway(Vector3 pos) {
+        float minDistance = float.MaxValue;
+        GameObject closestSpot = null;
+        foreach (var spot in runawaySpots) {
+            var distance = Vector3.Distance(pos, spot.transform.position);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestSpot = spot;
+            }
+        }
+
+        return closestSpot.transform.position;
     }
 }

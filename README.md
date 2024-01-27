@@ -21,15 +21,15 @@ Mecanicas:
 - Enemigos (payasos)
   - Spawn de enemigos
   - Animacion de enemigo
-  - Movimiento de Almas
+  ~ Movimiento de Almas
   - Agresion de enemigos
   - Muerte de enemigos
   ~ Muerte de almas
   ~ Despawn de almas
   - Tipos de enemigos
-  - Stun de enemigos (al bajar a la mitad de vida, los enemigos se stunean unos segundos)
+  x Stun de enemigos (al bajar a la mitad de vida, los enemigos se stunean unos segundos) - Juan
   - Movimiento de enemigos
-    - Pueden seguir elementos del entorno (un parent)
+    x Pueden seguir elementos del entorno (un parent) - Juan
     - Acercarse al jugador (segumiento o path)
 x Armas:
   x Dos tipos de disparos - Juan

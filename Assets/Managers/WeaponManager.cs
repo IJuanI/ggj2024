@@ -11,10 +11,10 @@ public enum FireAction {
 public class WeaponManager : MonoBehaviour
 {
 
-    public List<IGun> primaryWeapons;
-    public List<IGun> secondaryWeapons;
+    public List<AnyGun> primaryWeapons;
+    public List<AnyGun> secondaryWeapons;
 
-    private IGun getWeapon(FireAction action)
+    private AnyGun getWeapon(FireAction action)
     {
         switch (action)
         {
@@ -31,17 +31,18 @@ public class WeaponManager : MonoBehaviour
     public void Shoot(InputAction.CallbackContext ctx)
     {
 
-        if (ctx.started) return;
+        if (ctx.phase == InputActionPhase.Started) return;
 
         FireAction action = ctx.action.name == "FirePrimary" ? FireAction.Primary : FireAction.Secondary;
-        IGun weapon = getWeapon(action);
+        AnyGun weapon = getWeapon(action);
 
         if (ctx.canceled) {
             weapon?.CancelShoot();
             return;
         };
-
-        weapon?.Shoot(ctx.ReadValue<Vector2>());
+        //Debug.Log("paso por acaaaaaa-------------------------");
+        UIManager.instance.Shoot(0);
+        weapon?.Shoot(Vector2.zero);
     }
 
 }
