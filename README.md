@@ -31,11 +31,12 @@ Mecanicas:
   - Movimiento de enemigos
     - Pueden seguir elementos del entorno (un parent)
     - Acercarse al jugador (segumiento o path)
-- Armas:
-  - Cambio de armas
-  > Disparo de armas - Juan
-  - Recarga de armas
-  - Las almas tardan en capturarse, se draggean al jugador
+> Armas:
+  x Dos tipos de disparos - Juan
+  x Disparo de armas - Juan
+  x Recarga de armas - Juan
+  > Las almas tardan en capturarse - Juan
+    - se draggean al jugador
 > Path de la camara (Dolly cart - Cinemachine) - Javi
 - UI de inicio (in-world)
 - Triggers que borran objetos de la escena anterior
@@ -51,6 +52,7 @@ Extras:
   - Extra extra: la nariz reaparece en otro lugar de la cara al explotar
 - Introduccion estilo story book
 - Voces pregeneradas por IA
+- Metralleta
 
 
 Assets:
