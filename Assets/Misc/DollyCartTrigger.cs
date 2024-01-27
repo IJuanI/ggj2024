@@ -6,6 +6,7 @@ public class DollyCartTrigger : MonoBehaviour
 {
     [SerializeField] bool stopOnTrigger = true;
     [SerializeField] Transform newTargetToLook;
+    [SerializeField] GameObject triggereable;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +32,15 @@ public class DollyCartTrigger : MonoBehaviour
             if (stopOnTrigger)
             {
                 DollyPathManager.instance.StopCart();
+            }
+            if (triggereable != null)
+            {
+                ITriggereable iTrigger;
+                if(triggereable.TryGetComponent<ITriggereable>(out iTrigger))
+                {
+                    iTrigger.Trigger();
+
+                }
             }
         }
     }

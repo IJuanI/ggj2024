@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public interface IEnemy : IDamageable
+public interface ITriggereable
 {
-    public void Remove();
+    public void Trigger();
 }

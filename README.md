@@ -24,25 +24,28 @@ Mecanicas:
   - Movimiento de Almas
   - Agresion de enemigos
   - Muerte de enemigos
-  - Muerte de almas
-  - Despawn de almas
+  ~ Muerte de almas
+  ~ Despawn de almas
   - Tipos de enemigos
   - Stun de enemigos (al bajar a la mitad de vida, los enemigos se stunean unos segundos)
   - Movimiento de enemigos
     - Pueden seguir elementos del entorno (un parent)
     - Acercarse al jugador (segumiento o path)
-> Armas:
+x Armas:
   x Dos tipos de disparos - Juan
   x Disparo de armas - Juan
   x Recarga de armas - Juan
-  > Las almas tardan en capturarse - Juan
-    - se draggean al jugador
+  x Las almas tardan en capturarse - Juan
+    ~ se draggean al jugador
 x Path de la camara (Dolly cart - Cinemachine) - Javi
-- Cambio de escena por tiempo
+x Cambio de escena por tiempo - Javi
 - UI de inicio (in-world)
-- Triggers que borran objetos de la escena anterior
-x Manager de sonidos
+x Triggers que borran objetos de la escena anterior - Javi
+x Manager de sonidos - Javi
+x Musica - Juan
 - Pantalla con puntuacion al final del juego
+> Sistema de puntajes - Marcos
+> UI in game - Javi
 
 Extras:
 - Boss final, payaso gigante dentro de una carpa, las luces se prenden al entrar, el boss spawnea minions
