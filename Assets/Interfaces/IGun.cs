@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IGun
+public abstract class AnyGun : MonoBehaviour
 {
 
     public abstract void Shoot(Vector2 screenPos);

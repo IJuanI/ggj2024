@@ -24,7 +24,7 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
     {
         if (timerForEndScene != null)
         {
-            Debug.Log("timer");
+            //Debug.Log("timer");
             if (timerForEndScene.TimerStarted)
             {
                 timerForEndScene.UpdateTimer();
@@ -48,7 +48,7 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
 
     public void StartScene()
     {
-        Debug.Log("Start scene");
+        //Debug.Log("Start scene");
         timerForEndScene= new Timer(false, 0, timeToGoOff);
         timerForEndScene.OnFinishTimer += RemoveElementsFromScene;
         timerForEndScene.StartTimer();
