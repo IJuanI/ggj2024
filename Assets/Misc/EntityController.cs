@@ -39,6 +39,7 @@ public class EntityController : MonoBehaviour,IDamageable
     void GoToPlace()
     {
         mySequence = DOTween.Sequence();
+        mySequence.SetUpdate(UpdateType.Fixed);
         mySequence.Append(this.transform.DOMove(placeToGo.position,velocityOfMovement).SetEase(ease));
         mySequence.Play();
     }
