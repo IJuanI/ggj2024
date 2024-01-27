@@ -31,7 +31,7 @@ Mecanicas:
   - Movimiento de enemigos
     - Pueden seguir elementos del entorno (un parent)
     - Acercarse al jugador (segumiento o path)
-> Armas:
+x Armas:
   x Dos tipos de disparos - Juan
   x Disparo de armas - Juan
   x Recarga de armas - Juan
