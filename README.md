@@ -37,7 +37,8 @@ Mecanicas:
   x Recarga de armas - Juan
   > Las almas tardan en capturarse - Juan
     - se draggean al jugador
-> Path de la camara (Dolly cart - Cinemachine) - Javi
+x Path de la camara (Dolly cart - Cinemachine) - Javi
+- Cambio de escena por tiempo
 - UI de inicio (in-world)
 - Triggers que borran objetos de la escena anterior
 x Manager de sonidos
