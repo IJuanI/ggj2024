@@ -14,13 +14,15 @@ public class MoveBehavior : BehaviorBase
 
   Sequence sequence;
 
-  public override void Start<T>(T enemy)
+  public override void Play<T>(T enemy)
   {
     if (sequence == null) {
       sequence = DOTween.Sequence();
       sequence.SetUpdate(UpdateType.Fixed);
-      foreach (var point in path) {
-        sequence.Append(enemy.transform.DOMove(point.transform.position, speed));
+      
+      sequence.AppendCallback(() => enemy.transform.position = path[0].transform.position);
+      for (int i = 1; i < path.Count; i++) {
+        sequence.Append(enemy.transform.DOMove(path[i].transform.position, speed));
       }
       sequence.Append(enemy.transform.DOMove(path[0].transform.position, speed));
 

@@ -17,7 +17,7 @@
                 {
                     "name": "SecondaryFire",
                     "type": "Button",
-                    "id": "add44e53-7333-4c1d-8a0e-dc4633444c13",
+                    "id": "39428e9d-199b-44c4-a151-cf76b3d10e40",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -27,23 +27,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "11f1bf57-98af-419f-b4bc-dab73afe7f9a",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse",
-                    "action": "SecondaryFire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "698ace59-2ad0-416b-975d-167d05fc4a6b",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse",
                     "action": "PrimaryFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6d992aa-8041-4fce-b130-29db7aac0079",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse",
+                    "action": "SecondaryFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

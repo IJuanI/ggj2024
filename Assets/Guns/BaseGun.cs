@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public abstract class BaseGun<T> : AnyGun where T: IDamageable
@@ -6,12 +7,12 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
   protected int capacity, currentAmmo;
 
   protected float fireRate, damage, reloadTime, activationTime;
-  protected float shootStartTime = 0, lastFireTime = 0, reloadStartTime = 0;
+  protected float shootStartTime = 0, lastFireTime = 0;
 
   /// <summary>
   /// When shooting is false, the gun is locked and cannot fire.
   /// </summary>
-  protected bool shooting = true, multiShoot, isActivating = false;
+  protected bool shooting = true, multiShoot, isActivating = false, isReloading = false;
 
   /// <summary>
   /// Handles a generic implementation for a Gun.
@@ -48,8 +49,7 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
 
   public override void Shoot(Vector2 screenPos)
   {
-    if (currentAmmo == 0 && !Reload()) return;
-
+    if (currentAmmo == 0) return;
 
     if (Time.time - lastFireTime < fireRate) return;
 
@@ -73,24 +73,21 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
 
   public virtual void OnStartActivate() { }
 
-  public bool Reload() {
+  public void Reload() {
+    if (isReloading) return;
+
     shooting = false;
+    isReloading = true;
 
-    if (reloadStartTime == 0) {
-      reloadStartTime = Time.time;
-      OnStartReload();
-    }
-
-    if (Time.time - reloadStartTime < reloadTime) return false;
-
-    currentAmmo = capacity;
-    reloadStartTime = 0;
-        Debug.Log("paso por acaaaaaaaaaaaaaaaaaaaaaaaaa");
-    UIManager.instance.Reload(0, currentAmmo);
-
-
-    return true;
+    InvokeOnReload();
+    OnStartReload();
+    Invoke(nameof(CompleteReload), reloadTime);
   }
+
+  void CompleteReload() {
+    isReloading = false;
+    currentAmmo = capacity;
+  }  
 
   private bool isGunActive() {
     if (activationTime == 0) return shooting;

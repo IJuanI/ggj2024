@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public enum FireAction {
@@ -8,11 +10,20 @@ public enum FireAction {
     Secondary
 }
 
+
 public class WeaponManager : MonoBehaviour
 {
 
     public List<AnyGun> primaryWeapons;
     public List<AnyGun> secondaryWeapons;
+
+    public UnityEvent<FireAction> OnShootEvent;
+    public UnityEvent<FireAction> OnReloadEvent;
+
+    Dictionary<FireAction, bool> actionStates = new Dictionary<FireAction, bool>() {
+        { FireAction.Primary, false },
+        { FireAction.Secondary, false }
+    };
 
     private AnyGun getWeapon(FireAction action)
     {
@@ -28,21 +39,42 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    void Start() {
+        foreach (var weapon in primaryWeapons)
+            weapon.OnReload += () => OnReloadEvent?.Invoke(FireAction.Primary);
+
+        foreach (var weapon in secondaryWeapons)
+            weapon.OnReload += () => OnReloadEvent?.Invoke(FireAction.Secondary);
+    }
+
+    void Update() {
+
+        foreach (var actionState in actionStates)
+        {
+            if (actionState.Value) {
+                getWeapon(actionState.Key)?.Shoot(Mouse.current.position.ReadValue());
+            }
+        }
+    }
+
     public void Shoot(InputAction.CallbackContext ctx)
     {
-
         if (ctx.phase == InputActionPhase.Started) return;
 
-        FireAction action = ctx.action.name == "FirePrimary" ? FireAction.Primary : FireAction.Secondary;
+        FireAction action = ctx.action.name == "PrimaryFire" ? FireAction.Primary : FireAction.Secondary;
         AnyGun weapon = getWeapon(action);
 
         if (ctx.canceled) {
             weapon?.CancelShoot();
+            actionStates[action] = false;
             return;
         };
-        //Debug.Log("paso por acaaaaaa-------------------------");
-        UIManager.instance.Shoot(0);
-        weapon?.Shoot(Vector2.zero);
+
+        if (actionStates[action]) return;
+        actionStates[action] = true;
+
+        OnShootEvent?.Invoke(action);
+        weapon?.Shoot(Mouse.current.position.ReadValue());
     }
 
 }

@@ -1,22 +1,28 @@
 using UnityEngine;
 
+[RequireComponent(typeof(RunawayBehavior))]
 public class Clown : MonoBehaviour, IEnemy, IStunnable
 {
 
   [SerializeField]
   BehaviorBase behavior;
 
+  private BehaviorBase runawayBehavior;
+
   [SerializeField]
-  float health = 30f;
+  float health = 9f;
 
   [SerializeField]
   float stunDuration = 3f;
 
-  [HideInInspector]
-  public CurrentSceneDisposer scene { get; private set; }
+  public CurrentSceneDisposer scene { get { return _scene; } }
 
-  void OnStart() {
-    behavior.Start(this);
+  [SerializeField]
+  CurrentSceneDisposer _scene;
+
+  void Start() {
+    behavior.Play(this);
+    runawayBehavior = GetComponent<RunawayBehavior>();
   }
 
   void Update() {
@@ -29,7 +35,7 @@ public class Clown : MonoBehaviour, IEnemy, IStunnable
   }
 
   public void SetScene(CurrentSceneDisposer scene) {
-    this.scene = scene;
+    _scene = scene;
   }
 
   public void TakeDamage(float damage)
@@ -47,14 +53,14 @@ public class Clown : MonoBehaviour, IEnemy, IStunnable
   }
 
   void ResumeBehavior() {
-    behavior.Start(this);
+    behavior.Play(this);
   }
 
 
   void Die() {
     behavior.Stop();
 
-    behavior = new RunawayBehavior();
-    behavior.Start(this);
+    behavior = runawayBehavior;
+    behavior.Play(this);
   }
 }

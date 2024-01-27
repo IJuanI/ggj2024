@@ -8,13 +8,14 @@ public class RunawayBehavior : BehaviorBase
   [SerializeField]
   public float speed = 1f;
 
-  public override void Start<T>(T enemy)
+  public override void Play<T>(T enemy)
   {
+    if (enemy.scene == null) return;
     Vector2 target = enemy.scene.GetPointToRunaway(enemy.transform.position);
 
     enemy.transform.DOMove(target, speed).SetEase(Ease.Linear)
       .OnComplete(() => {
-        Object.Destroy(enemy.gameObject);
+        Destroy(enemy.gameObject);
       });
   }
 

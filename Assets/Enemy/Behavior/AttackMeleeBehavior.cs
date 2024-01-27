@@ -2,7 +2,7 @@ public class AttackMeleeBehavior : BehaviorBase {
 
   bool active = false;
   
-  public override void Start<T>(T enemy)
+  public override void Play<T>(T enemy)
   {
     active = true;
   }
