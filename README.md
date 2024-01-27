@@ -33,13 +33,13 @@ Mecanicas:
     - Acercarse al jugador (segumiento o path)
 - Armas:
   - Cambio de armas
-  - Disparo de armas
+  > Disparo de armas - Juan
   - Recarga de armas
   - Las almas tardan en capturarse, se draggean al jugador
-- Path de la camara (Dolly cart - Cinemachine)
+> Path de la camara (Dolly cart - Cinemachine) - Javi
 - UI de inicio (in-world)
 - Triggers que borran objetos de la escena anterior
-- Manager de sonidos
+x Manager de sonidos
 - Pantalla con puntuacion al final del juego
 
 Extras:
