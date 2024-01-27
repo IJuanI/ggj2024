@@ -38,9 +38,9 @@ Mecanicas:
   x Las almas tardan en capturarse - Juan
     ~ se draggean al jugador
 x Path de la camara (Dolly cart - Cinemachine) - Javi
-- Cambio de escena por tiempo
+x Cambio de escena por tiempo - Javi
 - UI de inicio (in-world)
-- Triggers que borran objetos de la escena anterior
+x Triggers que borran objetos de la escena anterior - Javi
 x Manager de sonidos - Javi
 x Musica - Juan
 - Pantalla con puntuacion al final del juego
