@@ -6,6 +6,8 @@ public class DollyPathManager : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera cinemachineCamera;
     [SerializeField] CinemachineVirtualCamera cinemachineCameraToLook;
+    [SerializeField] CinemachineBrain brain1;
+    [SerializeField] CinemachineBrain brain2;
     [SerializeField] CinemachineDollyCart cartReference;
     [SerializeField] Transform cartFront;
     [SerializeField] float cartSpeed;
@@ -28,6 +30,12 @@ public class DollyPathManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(this);
+        
+    }
+    private void Start()
+    {
+        brain1.enabled = true;
+        brain2.enabled = true;
     }
     public void SetTargetForCamera(Transform transformToLook)
     {
@@ -43,6 +51,7 @@ public class DollyPathManager : MonoBehaviour
         cinemachineCamera.Priority = mainPriority;
         currentTargetForCamera = cartFront;
         cinemachineCameraToLook.LookAt=currentTargetForCamera;
+        
         //canvasWeapon1.transform.parent = cinemachineCamera.transform;
 
     }
@@ -50,5 +59,10 @@ public class DollyPathManager : MonoBehaviour
     {
         cartReference.m_Speed = 0;
     }
+    public void ResumeCart()
+    {
+        cartReference.m_Speed = 3;
+    }
+
 
 }

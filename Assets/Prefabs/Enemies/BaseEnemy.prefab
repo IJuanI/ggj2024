@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8778173714808213205}
   - {fileID: 4850375447614610847}
@@ -75,7 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 9
   stunDuration: 3
-  attackSpeed: 1
+  walkSpeed: 1
+  rotationSpeed: 1
   escapeSpeed: 1
   hasGun: 0
   behaviors:
@@ -275,8 +276,6 @@ MonoBehaviour:
     startDelay: 1
   - target: {fileID: 0}
     startDelay: 0
-  speed: 1
-  rotationSpeed: 2
 --- !u!114 &5845649299749321626
 MonoBehaviour:
   m_ObjectHideFlags: 0

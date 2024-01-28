@@ -12,6 +12,7 @@ public class CurrentScene : MonoBehaviour,ITriggereable
     [SerializeField] List<GameObject> runawaySpots = new List<GameObject>();
 
     [SerializeField] List<Spawner> spawners = new List<Spawner>();
+    [SerializeField] bool infiniteTime = false;
 
     
 
@@ -29,7 +30,11 @@ public class CurrentScene : MonoBehaviour,ITriggereable
             //Debug.Log("timer");
             if (timerForEndScene.TimerStarted)
             {
-                timerForEndScene.UpdateTimer();
+                if (!infiniteTime)
+                {
+                    timerForEndScene.UpdateTimer();
+
+                }
             }
         }
     }
@@ -50,6 +55,7 @@ public class CurrentScene : MonoBehaviour,ITriggereable
                 inter.Remove();
             }
         }
+        DollyPathManager.instance.ResumeCart();
         DollyPathManager.instance.ResetCameraToFront();
         timerForEndScene.OnFinishTimer -= RemoveElementsFromScene;
     }
