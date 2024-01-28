@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
+public class CurrentScene : MonoBehaviour,ITriggereable
 {
 
     [SerializeField] List<GameObject> enemies = new List<GameObject>();
@@ -10,6 +10,8 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
     [SerializeField] float timeToGoOff;
 
     [SerializeField] List<GameObject> runawaySpots = new List<GameObject>();
+
+    [SerializeField] List<Spawner> spawners = new List<Spawner>();
 
     
 
@@ -31,6 +33,12 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
             }
         }
     }
+
+    public void RegisterEnemy(GameObject enemy)
+    {
+        enemies.Add(enemy);
+    }
+
     public void RemoveElementsFromScene()
     {
         Debug.Log("remove elements");
@@ -52,6 +60,9 @@ public class CurrentSceneDisposer : MonoBehaviour,ITriggereable
         timerForEndScene= new Timer(false, 0, timeToGoOff);
         timerForEndScene.OnFinishTimer += RemoveElementsFromScene;
         timerForEndScene.StartTimer();
+
+        foreach (Spawner spawner in spawners)
+            spawner.Spawn(this);
     }
 
     public void Trigger()
