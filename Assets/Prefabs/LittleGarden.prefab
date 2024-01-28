@@ -4396,6 +4396,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantPot
       objectReference: {fileID: 0}
+    - target: {fileID: 7798439963097155680, guid: 437cc3e6fce5d584a9acec5f2bbf7b94,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44fca197238d7f14d9b6d5e3556054a7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
