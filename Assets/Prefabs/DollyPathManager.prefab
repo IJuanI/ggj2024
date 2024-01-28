@@ -52,3 +52,4 @@ MonoBehaviour:
   currentTargetForCamera: {fileID: 0}
   mainPriority: 10
   secondaryPriority: 5
+  canvasWeapon1: {fileID: 0}

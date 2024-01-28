@@ -47,16 +47,34 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
     currentAmmo = capacity;
   }
 
-  public override void Shoot(Vector2 screenPos)
+  public override bool Shoot(Vector2 screenPos)
   {
-    if (currentAmmo == 0) return;
+    if (currentAmmo == 0) return false;
 
-    if (Time.time - lastFireTime < fireRate) return;
+    if (Time.time - lastFireTime < fireRate) return false;
+
+
+    if (isGunActive() && GetTarget(screenPos, out T damageable)) {
+      DoFire(damageable);
+      return true;
+    }
+
+    return false;
+  }
+
+  public override bool Shoot(IDamageable target)
+  {
+    if (currentAmmo == 0) return false;
+
+    if (Time.time - lastFireTime < fireRate) return false;
 
 
     if (isGunActive()) {
-      DoFire(screenPos);
+      DoFire((T) target);
+      return true;
     }
+
+    return false;
   }
 
   public override void CancelShoot() {
@@ -106,15 +124,9 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
     return shooting;
   }
 
-  private void DoFire(Vector2 screenPos) {
-
-    RaycastUtils.RaycastFromCamera(out RaycastHit hit, screenPos);
-
-    if (hit.collider != null)
-    {
-      T damageable = hit.collider.GetComponent<T>();
-      damageable?.TakeDamage(damage);
-    }
+  private void DoFire(T damageable) {
+    
+    damageable.TakeDamage(damage);
 
     currentAmmo--;
     if (!multiShoot) shooting = false;

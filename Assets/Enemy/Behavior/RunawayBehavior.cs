@@ -5,8 +5,12 @@ using DG.Tweening;
 public class RunawayBehavior : BehaviorBase
 {
 
-  [SerializeField]
-  public float speed = 1f;
+  float speed = 1f;
+
+  public override void Init(dynamic data)
+  {
+    speed = data.speed;
+  }
 
   public override void Play<T>(T enemy)
   {

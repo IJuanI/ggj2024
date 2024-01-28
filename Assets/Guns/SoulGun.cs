@@ -3,22 +3,24 @@ using UnityEngine;
 public class SoulGun : BaseGun<Soul>
 {
 
-  Vector2 initialTargetPos;
+  Soul targetSoul;
 
   SoulGun() : base(10, 0, -1, .5f, 2f) { }
 
-  public override void Shoot(Vector2 screenPos)
+  public override bool Shoot(Vector2 screenPos)
   {
     if (!isActivating) {
-      initialTargetPos = screenPos;
+      if (GetTarget(screenPos, out targetSoul)) {
+        return base.Shoot(targetSoul);
+      }
     }
 
-    base.Shoot(initialTargetPos);
+    return base.Shoot(screenPos);
   }
 
   public override void OnStartActivate()
   {
-    if (!GetTarget(initialTargetPos, out _)) {
+    if (targetSoul == null) {
       CancelShoot();
       return;
     }
