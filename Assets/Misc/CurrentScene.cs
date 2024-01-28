@@ -7,13 +7,13 @@ public class CurrentScene : MonoBehaviour,ITriggereable
 
     [SerializeField] List<GameObject> enemies = new List<GameObject>();
     Timer timerForEndScene;
-    [SerializeField] float timeToGoOff;
+    [SerializeField] float timeToGoOff=0;
 
     [SerializeField] List<GameObject> runawaySpots = new List<GameObject>();
 
     [SerializeField] List<Spawner> spawners = new List<Spawner>();
     [SerializeField] bool infiniteTime = false;
-
+    [SerializeField] bool finish = false;
     
 
     // Start is called before the first frame update
@@ -30,8 +30,9 @@ public class CurrentScene : MonoBehaviour,ITriggereable
             //Debug.Log("timer");
             if (timerForEndScene.TimerStarted)
             {
-                if (!infiniteTime)
+                if (!infiniteTime&&!finish)
                 {
+                    Debug.Log("+++++++++++++++++++++++++++++++++++");
                     timerForEndScene.UpdateTimer();
 
                 }
@@ -46,6 +47,7 @@ public class CurrentScene : MonoBehaviour,ITriggereable
 
     public void RemoveElementsFromScene()
     {
+        finish = true;
         Debug.Log("remove elements");
         foreach (GameObject enemy in enemies)
         {
@@ -62,10 +64,11 @@ public class CurrentScene : MonoBehaviour,ITriggereable
 
     public void StartScene()
     {
-        //Debug.Log("Start scene");
+        Debug.Log("Start scene");
         timerForEndScene= new Timer(false, 0, timeToGoOff);
         timerForEndScene.OnFinishTimer += RemoveElementsFromScene;
-        timerForEndScene.StartTimer();
+        
+        timerForEndScene.StartTimer(timeToGoOff);
 
         foreach (Spawner spawner in spawners)
             spawner.Spawn(this);

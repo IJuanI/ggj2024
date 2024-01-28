@@ -36,9 +36,11 @@ public class Timer
 
         }
     }
-    public void StartTimer()
+    public void StartTimer(float _time)
     {
+        timeToGoOff = _time;
         timerStarted = true;
         currentTime = 0;
+        Debug.Log("timer to go off:" + timeToGoOff);
     }
 }
