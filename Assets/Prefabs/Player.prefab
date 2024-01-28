@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1307289839968003103}
   - component: {fileID: 1114154442403227017}
   - component: {fileID: 5903931195004441001}
+  - component: {fileID: 786459827097472861}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -78,7 +79,19 @@ MonoBehaviour:
     m_ActionId: d0770251-de70-4d3a-82dd-692ca1a8fe16
     m_ActionName: Base Controls/PrimaryFire[/Mouse/leftButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1307289839968003103}
+        m_TargetAssemblyTypeName: WeaponManager, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 39428e9d-199b-44c4-a151-cf76b3d10e40
     m_ActionName: Base Controls/SecondaryFire[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -101,11 +114,14 @@ MonoBehaviour:
   primaryWeapons:
   - {fileID: 1114154442403227017}
   secondaryWeapons:
-  - {fileID: 1114154442403227017}
+  - {fileID: 786459827097472861}
   OnShootEvent:
     m_PersistentCalls:
       m_Calls: []
   OnReloadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReloadCompleteEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1114154442403227017
@@ -130,5 +146,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b450b0825ac0cb846b68a5952aa52000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &786459827097472861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9222799378547304803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f3670275919f045adcd4865980637d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

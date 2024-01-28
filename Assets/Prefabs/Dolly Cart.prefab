@@ -550,11 +550,6 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[1].m_ActionId
       value: 39428e9d-199b-44c4-a151-cf76b3d10e40
       objectReference: {fileID: 0}
-    - target: {fileID: 1984317863096937936, guid: e32767e70296a474c9e7603c32d4ab86,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9222799378547304803, guid: e32767e70296a474c9e7603c32d4ab86,
         type: 3}
       propertyPath: m_Name
