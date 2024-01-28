@@ -5,9 +5,9 @@ using System;
 
 public interface IEnemy : IDamageable
 {
-    public CurrentSceneDisposer scene { get; }
+    public CurrentScene scene { get; }
 
     public void Remove();
 
-    public void SetScene(CurrentSceneDisposer scene);
+    public void SetScene(CurrentScene scene);
 }

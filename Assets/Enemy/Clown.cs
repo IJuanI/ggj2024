@@ -15,10 +15,10 @@ public class Clown : MonoBehaviour, IEnemy, IStunnable
   [SerializeField]
   float stunDuration = 3f;
 
-  public CurrentSceneDisposer scene { get { return _scene; } }
+  public CurrentScene scene { get { return _scene; } }
 
   [SerializeField]
-  CurrentSceneDisposer _scene;
+  CurrentScene _scene;
 
   void Start() {
     behavior.Play(this);
@@ -34,7 +34,7 @@ public class Clown : MonoBehaviour, IEnemy, IStunnable
     Die();
   }
 
-  public void SetScene(CurrentSceneDisposer scene) {
+  public void SetScene(CurrentScene scene) {
     _scene = scene;
   }
 
