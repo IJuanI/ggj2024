@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e70d2c741e5ec0243b896a49e87c1e04
+guid: dcc1b48227c9e3f4c997c19b4fa559a6
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -42,9 +42,9 @@ ModelImporter:
     sortHierarchyByName: 1
     importPhysicalCameras: 1
     importVisibility: 1
-    importBlendShapes: 0
-    importCameras: 0
-    importLights: 0
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -78,7 +78,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []

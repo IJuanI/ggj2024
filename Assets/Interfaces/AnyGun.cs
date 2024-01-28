@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class AnyGun : MonoBehaviour
 {
 
-    public event Action OnReload;
+    public event Action<bool> OnReload;
 
     public abstract bool Shoot(Vector2 screenPos);
 
@@ -12,7 +12,7 @@ public abstract class AnyGun : MonoBehaviour
 
     public abstract void CancelShoot();
 
-    protected void InvokeOnReload() {
-        OnReload?.Invoke();
+    protected void InvokeOnReload(bool complete) {
+        OnReload?.Invoke(complete);
     }
 }

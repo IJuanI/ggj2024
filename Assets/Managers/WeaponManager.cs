@@ -19,6 +19,7 @@ public class WeaponManager : MonoBehaviour
 
     public UnityEvent<FireAction> OnShootEvent;
     public UnityEvent<FireAction> OnReloadEvent;
+    public UnityEvent<FireAction> OnReloadCompleteEvent;
 
     Dictionary<FireAction, bool> actionStates = new Dictionary<FireAction, bool>() {
         { FireAction.Primary, false },
@@ -41,10 +42,15 @@ public class WeaponManager : MonoBehaviour
 
     void Start() {
         foreach (var weapon in primaryWeapons)
-            weapon.OnReload += () => OnReloadEvent?.Invoke(FireAction.Primary);
+            weapon.OnReload += (bool isComplete) => ReloadDelegate(FireAction.Primary, isComplete);
 
         foreach (var weapon in secondaryWeapons)
-            weapon.OnReload += () => OnReloadEvent?.Invoke(FireAction.Secondary);
+            weapon.OnReload += (bool isComplete) => ReloadDelegate(FireAction.Secondary, isComplete);            
+    }
+
+    void ReloadDelegate(FireAction action, bool isComplete) {
+        if (isComplete) OnReloadCompleteEvent?.Invoke(action);
+        else OnReloadEvent?.Invoke(action);
     }
 
     void Update() {

@@ -64,7 +64,10 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
 
   public override bool Shoot(IDamageable target)
   {
-    if (currentAmmo == 0) return false;
+    if (currentAmmo == 0) {
+      Reload();
+      return false;
+    }
 
     if (Time.time - lastFireTime < fireRate) return false;
 
@@ -97,7 +100,7 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
     shooting = false;
     isReloading = true;
 
-    InvokeOnReload();
+    InvokeOnReload(false);
     OnStartReload();
     Invoke(nameof(CompleteReload), reloadTime);
   }
@@ -105,6 +108,7 @@ public abstract class BaseGun<T> : AnyGun where T: IDamageable
   void CompleteReload() {
     isReloading = false;
     currentAmmo = capacity;
+    InvokeOnReload(true);
   }  
 
   private bool isGunActive() {
