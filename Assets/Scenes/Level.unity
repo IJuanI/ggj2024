@@ -517,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1132575386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +553,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.67
+  m_Intensity: 37.06
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -612,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 1132575385}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6830127, y: -0.18301266, z: 0.18301266, w: 0.6830127}
-  m_LocalPosition: {x: 2.55, y: 6.26, z: 13.44}
+  m_LocalPosition: {x: 5.3, y: 19, z: 26.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -634,7 +634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1160234426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,37 +715,12 @@ Transform:
   - {fileID: 1800209055}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1800209054
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1800209055}
-  m_Layer: 0
-  m_Name: LittleGarden
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1800209055
+--- !u!4 &1800209055 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3340954393038857890}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800209054}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.8, y: 0, z: 31.27}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1756851925}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985479608
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,12 +852,80 @@ Transform:
   m_GameObject: {fileID: 1985479608}
   serializedVersion: 2
   m_LocalRotation: {x: -0.005008516, y: -0.0019113596, z: 0.010727736, w: 0.9999281}
-  m_LocalPosition: {x: 14.03, y: 0.03, z: 21.71}
+  m_LocalPosition: {x: 13.99, y: 0.12, z: 31.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.572, y: -0.225, z: 1.23}
+--- !u!1001 &3340954393038857890
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1756851925}
+    m_Modifications:
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671061444213716652, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964397290588005026, guid: b4ce4aff97605aa4ba00bd15b82e90fb,
+        type: 3}
+      propertyPath: m_Name
+      value: LittleGarden
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b4ce4aff97605aa4ba00bd15b82e90fb, type: 3}
 --- !u!1001 &6706391702210537677
 PrefabInstance:
   m_ObjectHideFlags: 0
