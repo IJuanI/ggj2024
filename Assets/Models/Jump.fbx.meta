@@ -3,32 +3,7 @@ guid: 4e37781298e0d4e418d35395664e0063
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Camisa
-    second: {fileID: 2100000, guid: 72f1fec87255a8a4e8a187fd66af17fb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Globo
-    second: {fileID: 2100000, guid: f3e8687771b75104eab5a25ebd13ff4d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Hair
-    second: {fileID: 2100000, guid: e0ab51936040b474fba7430261025b15, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ropa
-    second: {fileID: 2100000, guid: c11f4ba91057eed4bb314ebc070851d3, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Skin
-    second: {fileID: 2100000, guid: 05a1b12aa163e2449aa59fd71238177f, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
